@@ -4,5 +4,6 @@ dist
 .env
 .env.local
 .DS_Store
-<response>
-</response>
+# Keep .git for git lfs operations
+!.git
+!.gitattributes
