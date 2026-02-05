@@ -1,2 +1,2 @@
 web: node backend/server.js
-release: echo "Preparing deployment"
+release: git lfs install && git lfs pull
