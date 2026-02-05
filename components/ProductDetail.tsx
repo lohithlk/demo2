@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Box, Download, Shield, Cpu, Activity, List, Layers, Camera, Radio, Settings } from 'lucide-react';
 import { Product } from '../types';
@@ -14,6 +14,7 @@ interface ProductDetailProps {
 }
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onRequestInfo, onViewPayloads }) => {
+  const [modelFailed, setModelFailed] = useState(false);
   return (
     <div className="min-h-screen bg-accluav-black text-white pt-24 pb-20">
       <div className="container mx-auto px-6">
@@ -124,7 +125,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onReques
                  <div className="sticky top-24">
                      {/* 3D Model / Image Container */}
                      <div className="aspect-square relative overflow-hidden group">
-                        {product.modelUrl ? (
+                        {product.modelUrl && !modelFailed ? (
                             <>
                                 <ModelViewer
                                     src={product.modelUrl}
@@ -135,6 +136,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onReques
                                     camera-orbit="45deg 55deg 2.5m"
                                     environment-image="neutral"
                                     style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
+                                    onError={() => setModelFailed(true)}
                                 >
                                 </ModelViewer>
                                 <div className="absolute top-6 left-6 bg-black/50 backdrop-blur px-3 py-1 text-xs font-bold text-white border border-white/10 rounded flex items-center gap-2">

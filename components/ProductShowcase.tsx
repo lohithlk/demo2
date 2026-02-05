@@ -264,6 +264,7 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, index, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [modelFailed, setModelFailed] = useState(false);
 
   const handleCardDoubleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -296,7 +297,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index, onClic
       onKeyDown={handleCardKeyDown}
     >
       {/* 3D Model Viewer Layer - Only visible if modelUrl exists and hovered */}
-      {product.modelUrl && isHovered ? (
+      {product.modelUrl && isHovered && !modelFailed ? (
         <div className="absolute inset-0 z-20 bg-black/90 transition-opacity duration-300">
           <div
            role="button"
@@ -326,6 +327,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index, onClic
              environment-image="neutral"
              alt={`3D model of ${product.title}`}
              style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
+             onError={() => setModelFailed(true)}
            >
            </ModelViewer>
           </div>
