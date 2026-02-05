@@ -1,10 +1,15 @@
 // Backend API configuration
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
+
+// Local asset configuration — serve files directly from `public/`
+
+export const getModelUrl = (modelName: string) => `/3d-model/${modelName}`;
+export const getImageUrl = (imageName: string) => `/images/${imageName}`;
+export const getVideoUrl = (videoName: string) => `/${videoName}`;
+
+// Backwards-compatible helpers if code still passes full paths
 export const getAssetUrl = (type: 'models' | 'images' | 'videos', fileName: string) => {
-  return `${API_BASE_URL}/${type}/${fileName}`;
+  if (type === 'models') return getModelUrl(fileName);
+  if (type === 'images') return getImageUrl(fileName);
+  return getVideoUrl(fileName);
 };
-
-export const getModelUrl = (modelName: string) => getAssetUrl('models', modelName);
-export const getImageUrl = (imageName: string) => getAssetUrl('images', imageName);
-export const getVideoUrl = (videoName: string) => getAssetUrl('videos', videoName);

@@ -1,8 +1,0 @@
-[build]
-builder = "nixpacks"
-buildCommand = "apt-get update && apt-get install -y git-lfs && cd /app && git config --global user.name 'Railway' && git config --global user.email 'railway@railway.app' && git lfs install && git lfs pull"
-
-[deploy]
-startCommand = "node backend/server.js"
-restartPolicyMaxRetries = 5
-restartPolicyWindowMs = 60000
