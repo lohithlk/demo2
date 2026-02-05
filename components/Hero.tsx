@@ -54,6 +54,7 @@ const Hero: React.FC = () => {
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-cover opacity-30 grayscale scale-105" // Slight scale to avoid edge artifacts
         >
           <source src="/background-video.mp4" type="video/mp4" />
