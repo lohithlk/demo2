@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Box, View } from 'lucide-react';
 import { Product } from '../types';
+import { getModelUrl, getImageUrl } from '../api-config';
 
 // Use 'any' to bypass TS check for custom element instead of augmenting global JSX namespace
 const ModelViewer = 'model-viewer' as any;
@@ -13,8 +14,8 @@ export const PRODUCTS: Product[] = [
     title: 'VINASHAK',
     category: 'KINETIC',
     description: 'Precision strike system with autonomous terminal guidance.',
-    imageUrl: '/images/vinashak.png',
-    modelUrl: '/3d-model/vinaashak.glb',
+    imageUrl: getImageUrl('vinashak.png'),
+    modelUrl: getModelUrl('vinaashak.glb'),
     specs: [
       { label: 'Range', value: '40 km' },
       { label: 'Endurance', value: '45 mins' },
@@ -33,8 +34,8 @@ export const PRODUCTS: Product[] = [
     title: 'ACE - IV (VTOL)',
     category: 'INTELLIGENCE',
     description: 'Hybrid VTOL UAV with 120min endurance and modular payloads.',
-    imageUrl: '/images/ace-iv.png',
-    modelUrl: '/3d-model/vtol.glb',
+    imageUrl: getImageUrl('ace-iv.png'),
+    modelUrl: getModelUrl('vtol.glb'),
     specs: [
         { label: 'Max Range', value: '150 km' },
         { label: 'Endurance', value: '120 mins' },
@@ -99,8 +100,8 @@ export const PRODUCTS: Product[] = [
     title: 'ACE-II',
     category: 'TACTICAL',
     description: 'Rapidly deployable fixed-wing system for squad-level overwatch.',
-    imageUrl: '/images/ace-ii.png',
-    modelUrl: '/3d-model/ace2.glb',
+    imageUrl: getImageUrl('ace-ii.png'),
+    modelUrl: getModelUrl('ace2.glb'),
     specs: [
         { label: 'Range', value: '15 km' },
         { label: 'Endurance', value: '60 mins' },
@@ -119,8 +120,8 @@ export const PRODUCTS: Product[] = [
     title: 'LM-1',
     category: 'MUNITION',
     description: 'Precision engagement system with sustained target tracking.',
-    imageUrl: '/images/lm1.png',
-    modelUrl: '/3d-model/lm1.glb',
+    imageUrl: getImageUrl('lm1.png'),
+    modelUrl: getModelUrl('lm1.glb'),
     specs: [
         { label: 'Loiter Time', value: '30 mins' },
         { label: 'Dive Speed', value: '150 km/h' },
@@ -139,8 +140,8 @@ export const PRODUCTS: Product[] = [
     title: 'HEXACOPTER',
     category: 'MULTI-MISSION',
     description: 'Heavy-lift multi-rotor platform for logistics and surveillance.',
-    imageUrl: '/images/hexacopter.png',
-    modelUrl: '/3d-model/hexacopter.glb',
+    imageUrl: getImageUrl('hexacopter.png'),
+    modelUrl: getModelUrl('hexacopter.glb'),
     specs: [
         { label: 'Payload Capacity', value: '15 kg' },
         { label: 'Endurance', value: '45 mins (Max Load)' },

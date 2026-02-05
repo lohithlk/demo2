@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:backend": "node backend/server.js",
+    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev\"",
     "build": "vite build && npm run copy-public",
     "copy-public": "node scripts/copy-public.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start:backend": "node backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -25,6 +28,7 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^8.2.2",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

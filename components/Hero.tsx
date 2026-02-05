@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import { getVideoUrl } from '../api-config';
 
 const Hero: React.FC = () => {
   const title = "AccelUAV";
@@ -57,7 +58,7 @@ const Hero: React.FC = () => {
           preload="auto"
           className="w-full h-full object-cover opacity-30 grayscale scale-105" // Slight scale to avoid edge artifacts
         >
-          <source src="/background-video.mp4" type="video/mp4" />
+          <source src={getVideoUrl('background-video.mp4')} type="video/mp4" />
         </video>
         {/* Gradient Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90" />
