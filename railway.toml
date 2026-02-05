@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "git lfs install && git lfs pull && npm ci && npm run build && npm run copy-public"
+buildCommand = "apt-get update && apt-get install -y git-lfs && git lfs install && git lfs pull && npm ci && npm run build && npm run copy-public"
 
 [deploy]
 startCommand = "node backend/server.js"

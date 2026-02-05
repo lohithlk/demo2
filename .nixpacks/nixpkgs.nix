@@ -1,4 +1,4 @@
-{ pkgs }:
+with (import <nixpkgs> {});
 [
-  pkgs.git-lfs
+  git-lfs
 ]
