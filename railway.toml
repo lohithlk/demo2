@@ -1,6 +1,10 @@
 [build]
 builder = "nixpacks"
-buildCommand = "git lfs pull && npm ci && npm run build && npm run copy-public"
+nixpkgsId = "nixpkgs-unstable"
+buildCommand = "git lfs install && git lfs pull && npm ci && npm run build && npm run copy-public"
+
+[build.nixpacks]
+pkgs = ["git-lfs"]
 
 [deploy]
 startCommand = "node backend/server.js"
